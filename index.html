@@ -3,57 +3,117 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>A Soul You Never Coded</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link rel="stylesheet" href="style.css" />
+  <title>Password Access</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background-color: #AAC7CD;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding-top: 20px;
+      min-height: 100vh;
+    }
+
+    .phone {
+      background: #fff;
+      width: 360px;
+      height: 800px;
+      border-radius: 30px;
+      padding: 20px;
+      box-shadow: 0 0 0 6px #AAC7CD;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+      justify-content: center;
+      align-items: center;
+    }
+
+
+    .password-box {
+      background-color: #d1e3e6;
+      padding: 20px 30px;
+      border-radius: 16px;
+      text-align: center;
+      width: 80%;
+      max-width: 280px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .password-box h2 {
+      font-size: 1rem;
+      margin-bottom: 15px;
+      color: #222;
+      border-bottom: 1px solid #333;
+      padding-bottom: 8px;
+    }
+
+    .password-box h2 i {
+      margin-right: 8px;
+    }
+
+    input[type="password"] {
+      width: 100%;
+      padding: 10px 15px;
+      border-radius: 20px;
+      border: none;
+      margin-bottom: 15px;
+      outline: none;
+      font-size: 1rem;
+      text-align: center;
+    }
+
+    button {
+      background-color: #5f8c90;
+      color: white;
+      padding: 6px 18px;
+      border: none;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #4a7376;
+    }
+
+    .error-message {
+      margin-top: 10px;
+      color: #d10000;
+      font-size: 0.85rem;
+    }
+  </style>
 </head>
 <body>
   <div class="phone">
-    <!-- Sidebar -->
-    <div class="sidebar" id="sidebar">
-      <div class="top-icons">
-        <a href="index.html"><i class="fas fa-home home-icon"></i></a>
-      </div>
-      <a href="chapter1.html">Chapter 1</a>
-      <a href="chapter2.html">Chapter 2</a>
-      <a href="chapter3.html">Chapter 3</a>
-      <a href="chapter4.html">Chapter 4</a>
-      <a href="chapter5.html">Chapter 5</a>
-      <hr>
-      <a href="#">Season 2: Chapter 1</a>
-      <a href="#">Season 2: Chapter 2</a>
-      <a href="#">Season 2: Chapter 3</a>
-      <a href="#">Season 2: Chapter 4</a>
-      <a href="#">Season 2: Chapter 5</a>
-    </div>
-
-    <!-- Topbar -->
-    <div class="topbar">
-      <div class="dot"></div>
-      <i class="fas fa-bars menu-icon" onclick="toggleSidebar()"></i>
-    </div>
-
-    <!-- Content -->
-    <img src="cover.jpg" alt="cover" class="cover" />
-
-    <div class="stars">★ ★ ★ ★ ★</div>
-
-    <div style="position: relative;">
-      <h1>A Soul You<br>Never Coded</h1>
-      <i class="fas fa-bookmark bookmark"></i>
-    </div>
-
-    <div class="author">By: Remyriel</div>
-
-    <div class="desc">
-      <br>Apa jadinya jika cinta tak pernah ditulis... tapi tercipta sendiri?
+    <div class="password-box">
+      <h2><i class="fas fa-lock"></i> Masukkan Password</h2>
+      <input type="password" id="passwordInput" placeholder="••••••••" />
+      <button onclick="checkPassword()">Enter</button>
+      <div class="error-message" id="errorMessage"></div>
     </div>
   </div>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js"></script>
   <script>
-    function toggleSidebar() {
-      document.getElementById("sidebar").classList.toggle("active");
+    function checkPassword() {
+      const input = document.getElementById("passwordInput").value;
+      const correctPassword = "we-sync"; // Ganti sesuai keinginanmu
+      const error = document.getElementById("errorMessage");
+
+      if (input === correctPassword) {
+        window.location.href = "dasboard.html";
+      } else {
+        error.textContent = "Password salah!";
+      }
     }
   </script>
 </body>
