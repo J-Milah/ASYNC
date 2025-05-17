@@ -213,7 +213,13 @@ br {
   text-align: center;
 }
 
+.ost-player .music-icon {
+  color: #6c63ff;
+  font-size: 16px;
+}
+
 .ost-player .ost-title {
   white-space: nowrap;
   font-weight: 500;
 }
+
